@@ -1,0 +1,6 @@
+{
+  "name": "FinWise - Financial Health Dashboard",
+  "description": "A comprehensive personal financial health dashboard featuring intelligent health scoring, risk-aligned portfolio tracking, automated expense analyzer, goal tracking, and AI financial coaching.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
