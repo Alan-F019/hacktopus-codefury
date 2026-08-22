@@ -2,7 +2,7 @@ import rateLimit from 'express-rate-limit';
 
 export const standardLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 200,
+  max: 1000,
   standardHeaders: true,
   legacyHeaders: false,
   message: {
@@ -13,7 +13,7 @@ export const standardLimiter = rateLimit({
 
 export const strictLimiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 30, // For AI coach and onboarding
+  max: 200, // For AI coach and onboarding
   standardHeaders: true,
   legacyHeaders: false,
   message: {

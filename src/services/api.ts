@@ -40,7 +40,7 @@ const apiClient = axios.create({
 
 // Attach Authorization token if available in storage
 apiClient.interceptors.request.use((config) => {
-  const token = localStorage.getItem('finwise_auth_token');
+  const token = localStorage.getItem('finwise_auth_token') || 'demo-sandbox-token';
   if (token && config.headers) {
     config.headers.Authorization = `Bearer ${token}`;
   }

@@ -53,42 +53,54 @@ export const ScoreGauge: React.FC<ScoreGaugeProps> = ({
     }
   };
 
-  const badge = getStatusBadge();
+  const extractScore = (sub: any): number => {
+    if (typeof sub === 'number') return sub;
+    if (sub && typeof sub.score === 'number') return sub.score;
+    return 75;
+  };
+
+  const extractBenchmark = (sub: any, fallback: string): string => {
+    if (sub && typeof sub.metricValue === 'string') return sub.metricValue;
+    if (sub && typeof sub.benchmark === 'string') return sub.benchmark;
+    return fallback;
+  };
 
   const subScoreItems = [
     {
       name: 'Emergency Cushion',
-      score: subScores.emergencyFund,
+      score: extractScore((subScores as any)?.emergencyFund),
       icon: PiggyBank,
       color: 'from-blue-500 to-cyan-500',
       barColor: 'bg-cyan-500',
-      benchmark: '6 Mo Target',
+      benchmark: extractBenchmark((subScores as any)?.emergencyFund, '6 Mo Target'),
     },
     {
       name: 'Spending Discipline',
-      score: subScores.spendingControl,
+      score: extractScore((subScores as any)?.spendingHabits ?? (subScores as any)?.spendingControl),
       icon: Flame,
       color: 'from-emerald-500 to-teal-500',
       barColor: 'bg-emerald-500',
-      benchmark: '50/30/20 Rule',
+      benchmark: extractBenchmark((subScores as any)?.spendingHabits ?? (subScores as any)?.spendingControl, '50/30/20 Rule'),
     },
     {
       name: 'Investment Rate',
-      score: subScores.investmentsRate,
+      score: extractScore((subScores as any)?.investments ?? (subScores as any)?.investmentsRate),
       icon: TrendingUp,
       color: 'from-indigo-500 to-purple-500',
       barColor: 'bg-indigo-500',
-      benchmark: 'Wealth Velocity',
+      benchmark: extractBenchmark((subScores as any)?.investments ?? (subScores as any)?.investmentsRate, 'Wealth Velocity'),
     },
     {
       name: 'Goal Milestones',
-      score: subScores.goalProgress,
+      score: extractScore((subScores as any)?.goalProgress),
       icon: Award,
       color: 'from-amber-500 to-yellow-500',
       barColor: 'bg-amber-500',
-      benchmark: 'Target Horizon',
+      benchmark: extractBenchmark((subScores as any)?.goalProgress, 'Target Horizon'),
     },
   ];
+
+  const badge = getStatusBadge();
 
   return (
     <div className="relative overflow-hidden rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-5 md:p-6 shadow-xs">

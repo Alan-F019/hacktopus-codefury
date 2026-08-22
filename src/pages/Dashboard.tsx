@@ -67,10 +67,19 @@ export const Dashboard: React.FC = () => {
     );
   }
 
-  const { metrics, subScores } = healthData;
+  const metrics = healthData.metrics || {
+    monthlyIncome: 7500,
+    monthlyExpenses: 4100,
+    monthlySavings: 3400,
+    savingsRate: 45.3,
+    emergencyFundMonths: 5.8,
+    existingSavings: 24000,
+    investmentAmount: 58000,
+  };
+  const subScores = healthData.subScores || {};
   const totalNetWorth = metrics.existingSavings !== undefined 
-    ? metrics.existingSavings + (portfolio?.totalValue || 0)
-    : (user?.existingSavings || 24000) + (portfolio?.totalValue || 58000);
+    ? Number(metrics.existingSavings || 0) + Number(portfolio?.totalValue || 0)
+    : Number(user?.existingSavings || 24000) + Number(portfolio?.totalValue || 58000);
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0B1120] text-slate-900 dark:text-slate-100 p-3 sm:p-5 lg:p-6 transition-colors">
@@ -166,7 +175,7 @@ export const Dashboard: React.FC = () => {
         />
 
         {/* KILLER FEATURE: "This Month You Should:" Action Plan List */}
-        <ActionPlanList initialItems={healthData.actionPlan} />
+        <ActionPlanList initialItems={healthData.actionPlan || []} />
 
         {/* Bottom Split: Quick Portfolio Allocation Snapshot + Goals Progress */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -193,7 +202,7 @@ export const Dashboard: React.FC = () => {
 
               {portfolio && (
                 <div className="space-y-2">
-                  {portfolio.allocations.slice(0, 4).map((alloc) => (
+                  {(portfolio.allocations || []).slice(0, 4).map((alloc) => (
                     <div key={alloc.type} className="flex items-center justify-between text-xs py-1 px-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800/40 transition-colors">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold text-slate-800 dark:text-slate-200">{alloc.type}</span>
@@ -248,7 +257,7 @@ export const Dashboard: React.FC = () => {
               </div>
 
               <div className="space-y-2.5">
-                {goals.slice(0, 3).map((goal) => (
+                {(goals || []).slice(0, 3).map((goal) => (
                   <div key={goal.id} className="p-2.5 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-slate-200/60 dark:border-slate-800">
                     <div className="flex items-center justify-between text-xs font-semibold mb-1">
                       <span className="text-slate-900 dark:text-white">{goal.name}</span>

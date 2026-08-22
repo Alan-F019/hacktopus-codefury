@@ -185,10 +185,17 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const loginAsDemoUser = async () => {
     setLoading(true);
     try {
+      localStorage.setItem('finwise_auth_token', 'demo-sandbox-token');
       await new Promise((r) => setTimeout(r, 200));
       localStore.reset();
-      setUser({ ...localStore.user });
-      localStorage.setItem('finwise_current_user', JSON.stringify(localStore.user));
+      try {
+        const profile = await api.getUserProfile();
+        setUser(profile);
+        localStorage.setItem('finwise_current_user', JSON.stringify(profile));
+      } catch {
+        setUser({ ...localStore.user });
+        localStorage.setItem('finwise_current_user', JSON.stringify(localStore.user));
+      }
     } finally {
       setLoading(false);
     }
