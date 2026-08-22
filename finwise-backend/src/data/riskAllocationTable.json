@@ -1,0 +1,30 @@
+{
+  "Conservative": {
+    "Cash": 25,
+    "Gold": 15,
+    "Mutual Fund": 35,
+    "ETF": 15,
+    "Stock": 10
+  },
+  "Moderate": {
+    "Cash": 15,
+    "Gold": 10,
+    "Mutual Fund": 35,
+    "ETF": 25,
+    "Stock": 15
+  },
+  "Aggressive": {
+    "Stock": 40,
+    "ETF": 30,
+    "Mutual Fund": 15,
+    "Gold": 5,
+    "Cash": 10
+  },
+  "Very Aggressive": {
+    "Stock": 40,
+    "ETF": 35,
+    "Mutual Fund": 15,
+    "Gold": 5,
+    "Cash": 5
+  }
+}
