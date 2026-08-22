@@ -60,7 +60,7 @@ export interface ActionPlanItem {
   description: string;
   category: 'Spending' | 'Savings' | 'Investment' | 'Debt' | 'Goal';
   priority: 'High' | 'Medium' | 'Low';
-  impact: string; // e.g. "+5 Health Pts", "Saves $240/mo"
+  impact: string; // e.g. "+5 Health Pts", "Saves ₹19,000/mo"
   completed?: boolean;
 }
 

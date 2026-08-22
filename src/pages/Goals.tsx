@@ -10,7 +10,7 @@ import {
   TrendingUp,
   Calendar,
   Sparkles,
-  DollarSign,
+  IndianRupee,
   PiggyBank,
   CheckCircle2,
   X,
@@ -365,7 +365,7 @@ export const Goals: React.FC = () => {
               <div className="grid grid-cols-2 gap-2.5">
                 <div>
                   <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                    Target Goal Amount ($)
+                    Target Goal Amount (₹)
                   </label>
                   <input
                     type="number"
@@ -380,7 +380,7 @@ export const Goals: React.FC = () => {
 
                 <div>
                   <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                    Current Savings ($)
+                    Current Savings (₹)
                   </label>
                   <input
                     type="number"
@@ -444,7 +444,7 @@ export const Goals: React.FC = () => {
             <form onSubmit={handleDeposit} className="space-y-3">
               <div>
                 <label className="block text-[11px] font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                  Contribution Amount ($ USD)
+                  Contribution Amount (? INR)
                 </label>
                 <input
                   type="number"

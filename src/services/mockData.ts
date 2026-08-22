@@ -16,10 +16,10 @@ export const INITIAL_MOCK_USER: UserProfile = {
   name: 'Alex Morgan',
   email: 'alex.morgan@finwise.demo',
   age: 29,
-  monthlyIncome: 7500,
-  monthlyExpenses: 4100,
-  existingSavings: 24000,
-  investmentAmount: 58000,
+  monthlyIncome: 600000,
+  monthlyExpenses: 328000,
+  existingSavings: 1920000,
+  investmentAmount: 4640000,
   financialGoal: 'Buy a Home & Retire Early at 55',
   riskScore: 68,
   riskLevel: 'Aggressive',
@@ -28,12 +28,12 @@ export const INITIAL_MOCK_USER: UserProfile = {
 };
 
 export const INITIAL_MOCK_ASSETS: Asset[] = [
-  { id: 'ast-1', name: 'Vanguard Total World Stock (VT)', type: 'ETF', amount: 22000, ticker: 'VT', returnsYTD: 14.2 },
-  { id: 'ast-2', name: 'S&P 500 Index Fund (VOO)', type: 'ETF', amount: 16000, ticker: 'VOO', returnsYTD: 18.5 },
-  { id: 'ast-3', name: 'Apple Inc. (AAPL)', type: 'Stock', amount: 8500, ticker: 'AAPL', returnsYTD: 9.4 },
-  { id: 'ast-4', name: 'Fidelity Blue Chip Growth', type: 'Mutual Fund', amount: 6500, ticker: 'FBGRX', returnsYTD: 12.1 },
-  { id: 'ast-5', name: 'Physical Gold Sovereign ETF', type: 'Gold', amount: 2500, ticker: 'GLD', returnsYTD: 8.7 },
-  { id: 'ast-6', name: 'High-Yield Liquid Cash Reserve', type: 'Cash', amount: 2500, returnsYTD: 4.8 },
+  { id: 'ast-1', name: 'Vanguard Total World Stock (VT)', type: 'ETF', amount: 1760000, ticker: 'VT', returnsYTD: 14.2 },
+  { id: 'ast-2', name: 'S&P 500 Index Fund (VOO)', type: 'ETF', amount: 1280000, ticker: 'VOO', returnsYTD: 18.5 },
+  { id: 'ast-3', name: 'Apple Inc. (AAPL)', type: 'Stock', amount: 680000, ticker: 'AAPL', returnsYTD: 9.4 },
+  { id: 'ast-4', name: 'Fidelity Blue Chip Growth', type: 'Mutual Fund', amount: 520000, ticker: 'FBGRX', returnsYTD: 12.1 },
+  { id: 'ast-5', name: 'Physical Gold Sovereign ETF', type: 'Gold', amount: 200000, ticker: 'GLD', returnsYTD: 8.7 },
+  { id: 'ast-6', name: 'High-Yield Liquid Cash Reserve', type: 'Cash', amount: 200000, returnsYTD: 4.8 },
 ];
 
 export const generatePortfolioData = (assets: Asset[], riskLevel: RiskLevel): PortfolioData => {
@@ -101,8 +101,8 @@ export const INITIAL_MOCK_GOALS: Goal[] = [
     id: 'goal-1',
     name: 'Home Down Payment',
     category: 'House',
-    targetAmount: 75000,
-    currentAmount: 32000,
+    targetAmount: 6000000,
+    currentAmount: 2560000,
     timeHorizonYears: 3,
     targetDate: '2029-08-01',
     requiredMonthlySavings: 980,
@@ -114,8 +114,8 @@ export const INITIAL_MOCK_GOALS: Goal[] = [
     id: 'goal-2',
     name: '6-Month Emergency Safety Fund',
     category: 'Emergency',
-    targetAmount: 25000,
-    currentAmount: 24000,
+    targetAmount: 2000000,
+    currentAmount: 1920000,
     timeHorizonYears: 0.5,
     targetDate: '2027-02-01',
     requiredMonthlySavings: 200,
@@ -127,8 +127,8 @@ export const INITIAL_MOCK_GOALS: Goal[] = [
     id: 'goal-3',
     name: 'Early Financial Independence (FIRE)',
     category: 'Retirement',
-    targetAmount: 750000,
-    currentAmount: 58000,
+    targetAmount: 60000000,
+    currentAmount: 4640000,
     timeHorizonYears: 18,
     targetDate: '2044-08-01',
     requiredMonthlySavings: 1450,
@@ -140,8 +140,8 @@ export const INITIAL_MOCK_GOALS: Goal[] = [
     id: 'goal-4',
     name: 'European Sabbatical Trip',
     category: 'Travel',
-    targetAmount: 8000,
-    currentAmount: 4800,
+    targetAmount: 640000,
+    currentAmount: 384000,
     timeHorizonYears: 1,
     targetDate: '2027-08-01',
     requiredMonthlySavings: 260,
@@ -164,7 +164,7 @@ export const generateAICoachAdvice = (params: {
   const runwayMonths = params.expenses > 0 ? (params.savings / params.expenses).toFixed(1) : '0';
 
   return {
-    summary: `Based on your monthly cash inflow of $${params.income.toLocaleString()} and outflow of $${params.expenses.toLocaleString()}, you maintain a solid ${savingsRate}% net savings rate. Your investment portfolio stands at $${params.portfolio_equity.toLocaleString()}, aligned with your ${params.risk} risk profile.`,
+    summary: `Based on your monthly cash inflow of ₹${params.income.toLocaleString('en-IN')} and outflow of ₹${params.expenses.toLocaleString('en-IN')}, you maintain a solid ${savingsRate}% net savings rate. Your investment portfolio stands at ₹${params.portfolio_equity.toLocaleString('en-IN')}, aligned with your ${params.risk} risk profile.`,
     healthDiagnosis: `Your liquidity buffer is robust at ${runwayMonths} months of expense runway. Your primary growth lever is optimizing discretionary subscription leakage and channeling that surplus into tax-advantaged compounding index assets.`,
     topStrengths: [
       `Consistent ${(parseFloat(savingsRate)).toFixed(0)}% positive cash flow generation month-over-month.`,
@@ -180,12 +180,12 @@ export const generateAICoachAdvice = (params: {
       {
         month: 'Month 1',
         focus: 'Cash Flow Hygiene',
-        action: 'Audit and cap monthly restaurant and subscription spending to $450 total.',
+        action: 'Audit and cap monthly restaurant and subscription spending to ₹36,000 total.',
       },
       {
         month: 'Month 2',
         focus: 'Systematic Investment Plan',
-        action: 'Increase recurring SIP into broad-market index ETFs by $250 on paycheck day.',
+        action: 'Increase recurring SIP into broad-market index ETFs by ₹20,000 on paycheck day.',
       },
       {
         month: 'Month 3',

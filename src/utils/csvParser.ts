@@ -144,7 +144,7 @@ export const parseExpenseCSV = (csvText: string): ExpenseData => {
   if (categories.length > 0) {
     const topCat = categories[0];
     insights.push(
-      `Your largest expense category is ${topCat.category}, accounting for $${topCat.amount.toLocaleString()} (${topCat.percentage}% of total spend).`
+      `Your largest expense category is ${topCat.category}, accounting for ₹${topCat.amount.toLocaleString('en-IN')} (${topCat.percentage}% of total spend).`
     );
   }
 

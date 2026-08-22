@@ -10,7 +10,7 @@ import {
   Trash2,
   TrendingUp,
   ShieldCheck,
-  DollarSign,
+  IndianRupee,
   AlertCircle,
   HelpCircle,
   X,
@@ -427,7 +427,7 @@ export const Portfolio: React.FC = () => {
 
               <div>
                 <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1">
-                  Holding Amount ($ USD)
+                  Holding Amount (? INR)
                 </label>
                 <input
                   type="number"

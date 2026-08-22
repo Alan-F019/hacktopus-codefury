@@ -200,7 +200,7 @@ export const calculateHealthScore = (params: {
     actionPlan.push({
       id: 'act-1',
       title: 'Top Up Emergency Buffer',
-      description: `Current cushion is ${emergencyFundMonths} months. Allocate $350/month to high-yield cash until you reach a 6-month ($${(monthlyExpenses * 6).toLocaleString()}) safety net.`,
+      description: `Current cushion is ${emergencyFundMonths} months. Allocate ₹28,000/month to high-yield cash until you reach a 6-month (₹${(monthlyExpenses * 6).toLocaleString('en-IN')}) safety net.`,
       category: 'Savings',
       priority: emergencyFundMonths < 3 ? 'High' : 'Medium',
       impact: '+8 Health Pts',
@@ -212,10 +212,10 @@ export const calculateHealthScore = (params: {
     actionPlan.push({
       id: 'act-2',
       title: 'Trim Discretionary Subscriptions & Dining',
-      description: `Expenses are ${expenseRatio.toFixed(0)}% of income. Reducing non-essential dining/subscriptions by 15% will free up ~$${Math.round(monthlyExpenses * 0.15)} monthly.`,
+      description: `Expenses are ${expenseRatio.toFixed(0)}% of income. Reducing non-essential dining/subscriptions by 15% will free up ~₹${Math.round(monthlyExpenses * 0.15)} monthly.`,
       category: 'Spending',
       priority: 'High',
-      impact: 'Saves $270/mo',
+      impact: 'Saves ₹21,600/mo',
       completed: false,
     });
   }
@@ -223,18 +223,18 @@ export const calculateHealthScore = (params: {
   if (savingsRate >= 20) {
     actionPlan.push({
       id: 'act-3',
-      title: 'Automate SIP & Index Dollar-Cost Averaging',
+      title: 'Automate SIP & Index rupee-Cost Averaging',
       description: `Your ${savingsRate.toFixed(0)}% savings rate is healthy. Set up auto-debit on the 1st of each month into broad-market index ETFs.`,
       category: 'Investment',
       priority: 'Medium',
-      impact: '+$42k in 5 Yrs',
+      impact: '+₹33L in 5 Yrs',
       completed: true,
     });
   } else {
     actionPlan.push({
       id: 'act-3-alt',
       title: 'Increase Monthly Investment Contribution by 5%',
-      description: 'Bump automatic monthly SIP by just $150 to accelerate compounding towards your retirement baseline.',
+      description: 'Bump automatic monthly SIP by just ₹12,000 to accelerate compounding towards your retirement baseline.',
       category: 'Investment',
       priority: 'High',
       impact: '+6 Health Pts',

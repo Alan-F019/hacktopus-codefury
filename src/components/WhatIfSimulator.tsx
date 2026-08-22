@@ -44,11 +44,11 @@ export const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({
 
   const applyPresetScenario = (type: 'trim_dining' | 'increase_sip' | 'windfall') => {
     if (type === 'trim_dining') {
-      setSimExpenses((prev) => Math.max(100, prev - 350));
+      setSimExpenses((prev) => Math.max(100, prev - 28000));
     } else if (type === 'increase_sip') {
-      setSimEquity((prev) => prev + 10000);
+      setSimEquity((prev) => prev + 800000);
     } else if (type === 'windfall') {
-      setSimSavings((prev) => prev + 15000);
+      setSimSavings((prev) => prev + 1200000);
     }
   };
 
@@ -88,14 +88,14 @@ export const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({
             onClick={() => applyPresetScenario('trim_dining')}
             className="px-3 py-1.5 text-[11px] rounded-lg border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-700 font-semibold text-slate-700 dark:text-slate-300 transition-colors shadow-sm"
           >
-            Cut Expenses -$350
+            Cut Expenses -₹350
           </button>
           <button
             type="button"
             onClick={() => applyPresetScenario('increase_sip')}
             className="px-3 py-1.5 text-[11px] rounded-lg border border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-800/50 hover:bg-slate-100 dark:hover:bg-slate-700 font-semibold text-slate-700 dark:text-slate-300 transition-colors shadow-sm"
           >
-            +$10k Portfolio
+            +₹8L Portfolio
           </button>
         </div>
       </div>
@@ -103,11 +103,11 @@ export const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-5">
         <div>
           <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-400 mb-1.5 uppercase tracking-wider">
-            Monthly Income ($)
+            Monthly Income (₹)
           </label>
           <input
             type="number"
-            step="100"
+            step="10000"
             value={simIncome}
             onChange={(e) => setSimIncome(Number(e.target.value))}
             className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 font-mono shadow-inner outline-none transition-all"
@@ -116,11 +116,11 @@ export const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({
 
         <div>
           <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-400 mb-1.5 uppercase tracking-wider">
-            Monthly Expenses ($)
+            Monthly Expenses (₹)
           </label>
           <input
             type="number"
-            step="100"
+            step="10000"
             value={simExpenses}
             onChange={(e) => setSimExpenses(Number(e.target.value))}
             className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 font-mono shadow-inner outline-none transition-all"
@@ -129,11 +129,11 @@ export const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({
 
         <div>
           <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-400 mb-1.5 uppercase tracking-wider">
-            Emergency Savings ($)
+            Emergency Savings (₹)
           </label>
           <input
             type="number"
-            step="500"
+            step="50000"
             value={simSavings}
             onChange={(e) => setSimSavings(Number(e.target.value))}
             className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 font-mono shadow-inner outline-none transition-all"
@@ -142,11 +142,11 @@ export const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({
 
         <div>
           <label className="block text-[11px] font-bold text-slate-600 dark:text-slate-400 mb-1.5 uppercase tracking-wider">
-            Portfolio Equity ($)
+            Portfolio Equity (₹)
           </label>
           <input
             type="number"
-            step="1000"
+            step="100000"
             value={simEquity}
             onChange={(e) => setSimEquity(Number(e.target.value))}
             className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white/80 dark:bg-slate-900/80 text-sm text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 font-mono shadow-inner outline-none transition-all"

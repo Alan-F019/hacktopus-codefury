@@ -55,24 +55,24 @@ class LocalStore {
   expenses: ExpenseData;
 
   constructor() {
-    const savedUser = localStorage.getItem('finwise_demo_user');
+    const savedUser = localStorage.getItem('finwise_demo_user_v2');
     this.user = savedUser ? JSON.parse(savedUser) : { ...INITIAL_MOCK_USER };
 
-    const savedAssets = localStorage.getItem('finwise_demo_assets');
+    const savedAssets = localStorage.getItem('finwise_demo_assets_v2');
     this.assets = savedAssets ? JSON.parse(savedAssets) : [...INITIAL_MOCK_ASSETS];
 
-    const savedGoals = localStorage.getItem('finwise_demo_goals');
+    const savedGoals = localStorage.getItem('finwise_demo_goals_v2');
     this.goals = savedGoals ? JSON.parse(savedGoals) : [...INITIAL_MOCK_GOALS];
 
-    const savedExpenses = localStorage.getItem('finwise_demo_expenses');
+    const savedExpenses = localStorage.getItem('finwise_demo_expenses_v2');
     this.expenses = savedExpenses ? JSON.parse(savedExpenses) : { ...INITIAL_MOCK_EXPENSES };
   }
 
   save() {
-    localStorage.setItem('finwise_demo_user', JSON.stringify(this.user));
-    localStorage.setItem('finwise_demo_assets', JSON.stringify(this.assets));
-    localStorage.setItem('finwise_demo_goals', JSON.stringify(this.goals));
-    localStorage.setItem('finwise_demo_expenses', JSON.stringify(this.expenses));
+    localStorage.setItem('finwise_demo_user_v2', JSON.stringify(this.user));
+    localStorage.setItem('finwise_demo_assets_v2', JSON.stringify(this.assets));
+    localStorage.setItem('finwise_demo_goals_v2', JSON.stringify(this.goals));
+    localStorage.setItem('finwise_demo_expenses_v2', JSON.stringify(this.expenses));
   }
 
   reset() {

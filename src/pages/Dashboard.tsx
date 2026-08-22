@@ -7,7 +7,7 @@ import { StatCard } from '../components/StatCard';
 import { ActionPlanList } from '../components/ActionPlanList';
 import { formatCurrency, formatPercent } from '../utils/formatters';
 import {
-  DollarSign,
+  IndianRupee,
   Receipt,
   PiggyBank,
   TrendingUp,
@@ -132,7 +132,7 @@ export const Dashboard: React.FC = () => {
             title="Monthly Income"
             value={formatCurrency(metrics.monthlyIncome)}
             subtext="Primary Take-home"
-            icon={DollarSign}
+            icon={IndianRupee}
             accentColor="emerald"
           />
           <StatCard

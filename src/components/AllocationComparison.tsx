@@ -22,7 +22,7 @@ export const AllocationComparison: React.FC<AllocationComparisonProps> = ({
           <thead className="bg-slate-50 dark:bg-slate-800/80 text-[10px] uppercase tracking-wider text-slate-500 dark:text-slate-400 border-b border-slate-200 dark:border-slate-800">
             <tr>
               <th className="py-2.5 px-3 font-bold">Asset Class</th>
-              <th className="py-2.5 px-3 font-bold text-right">Holdings ($)</th>
+              <th className="py-2.5 px-3 font-bold text-right">Holdings (₹)</th>
               <th className="py-2.5 px-3 font-bold text-right">Current %</th>
               <th className="py-2.5 px-3 font-bold text-right">Target {riskProfile} %</th>
               <th className="py-2.5 px-3 font-bold text-center">Risk Alignment</th>

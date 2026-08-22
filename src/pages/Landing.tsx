@@ -26,11 +26,11 @@ export const Landing: React.FC = () => {
       setHealthScore(scoreData);
       
       const adviceData = await api.getAICoachAdvice({
-        income: 7500,
-        expenses: 4100,
-        savings: 24000,
+        income: 600000,
+        expenses: 328000,
+        savings: 1920000,
         risk: 'Aggressive',
-        portfolio_equity: 58000,
+        portfolio_equity: 4640000,
       });
       setAdvice(adviceData);
     };
@@ -191,11 +191,11 @@ export const Landing: React.FC = () => {
                 {/* What-If Simulator embedded */}
                 <div>
                   <WhatIfSimulator
-                    initialIncome={7500}
-                    initialExpenses={4100}
-                    initialSavings={24000}
+                    initialIncome={600000}
+                    initialExpenses={328000}
+                    initialSavings={1920000}
                     initialRisk={'Aggressive' as RiskLevel}
-                    initialEquity={58000}
+                    initialEquity={4640000}
                     onSimulate={handleSimulate}
                   />
                 </div>

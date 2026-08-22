@@ -1,16 +1,21 @@
 export const formatCurrency = (amount: number, compact: boolean = false): string => {
-  if (isNaN(amount) || amount === null || amount === undefined) return '$0';
+  if (isNaN(amount) || amount === null || amount === undefined) return '₹0';
   
-  if (compact && Math.abs(amount) >= 1000000) {
-    return `$${(amount / 1000000).toFixed(1)}M`;
-  }
-  if (compact && Math.abs(amount) >= 1000) {
-    return `$${(amount / 1000).toFixed(1)}k`;
+  if (compact) {
+    if (Math.abs(amount) >= 10000000) {
+      return `₹${(amount / 10000000).toFixed(1)}Cr`;
+    }
+    if (Math.abs(amount) >= 100000) {
+      return `₹${(amount / 100000).toFixed(1)}L`;
+    }
+    if (Math.abs(amount) >= 1000) {
+      return `₹${(amount / 1000).toFixed(1)}k`;
+    }
   }
 
-  return new Intl.NumberFormat('en-US', {
+  return new Intl.NumberFormat('en-IN', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'INR',
     maximumFractionDigits: amount % 1 === 0 ? 0 : 2,
     minimumFractionDigits: 0,
   }).format(amount);

@@ -84,9 +84,9 @@ export const SipCalculator: React.FC<SipCalculatorProps> = ({
               className="w-full h-1.5 bg-slate-200 dark:bg-slate-700 rounded-lg appearance-none cursor-pointer accent-emerald-500"
             />
             <div className="flex justify-between text-[10px] text-slate-400 mt-0.5">
-              <span>$50</span>
-              <span>$2,500</span>
-              <span>$5,000</span>
+              <span>₹50</span>
+              <span>₹2,500</span>
+              <span>₹5,000</span>
             </div>
           </div>
 

@@ -7,7 +7,7 @@ import { formatCurrency, formatPercent } from '../utils/formatters';
 import {
   TrendingUp,
   User,
-  DollarSign,
+  IndianRupee,
   PieChart,
   Shield,
   ArrowRight,
@@ -31,10 +31,10 @@ export const Onboarding: React.FC = () => {
   const [formData, setFormData] = useState({
     name: user?.name || 'Alex Morgan',
     age: user?.age || 28,
-    monthlyIncome: user?.monthlyIncome || 7500,
-    monthlyExpenses: user?.monthlyExpenses || 4100,
-    existingSavings: user?.existingSavings || 24000,
-    investmentAmount: user?.investmentAmount || 58000,
+    monthlyIncome: user?.monthlyIncome || 600000,
+    monthlyExpenses: user?.monthlyExpenses || 328000,
+    existingSavings: user?.existingSavings || 1920000,
+    investmentAmount: user?.investmentAmount || 4640000,
     financialGoal: user?.financialGoal || 'Buy a Home & Retire Early at 55',
   });
 
@@ -144,7 +144,7 @@ export const Onboarding: React.FC = () => {
           <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200/90 dark:border-slate-800 p-6 sm:p-8 shadow-xl animate-in fade-in duration-300">
             <div className="flex items-center gap-3 mb-6">
               <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-500">
-                <DollarSign className="w-6 h-6" />
+                <IndianRupee className="w-6 h-6" />
               </div>
               <div>
                 <h2 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white">
@@ -190,7 +190,7 @@ export const Onboarding: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                    Monthly Take-Home Income ($)
+                    Monthly Take-Home Income (₹)
                   </label>
                   <input
                     type="number"
@@ -205,7 +205,7 @@ export const Onboarding: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                    Monthly Expenses ($)
+                    Monthly Expenses (₹)
                   </label>
                   <input
                     type="number"
@@ -222,7 +222,7 @@ export const Onboarding: React.FC = () => {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                    Liquid Cash & Emergency Savings ($)
+                    Liquid Cash & Emergency Savings (₹)
                   </label>
                   <input
                     type="number"
@@ -237,7 +237,7 @@ export const Onboarding: React.FC = () => {
 
                 <div>
                   <label className="block text-xs font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
-                    Current Total Investments ($)
+                    Current Total Investments (₹)
                   </label>
                   <input
                     type="number"
