@@ -44,25 +44,31 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   useEffect(() => {
     if (isConfigured && auth) {
       const unsubscribe = onAuthStateChanged(auth, async (fbUser) => {
-        if (fbUser) {
-          const profile = await api.getUserProfile();
-          setUser({
-            ...profile,
-            uid: fbUser.uid,
-            email: fbUser.email || profile.email,
-            name: fbUser.displayName || profile.name,
-            photoURL: fbUser.photoURL || profile.photoURL,
-          });
-        } else {
-          // Check if demo user was logged in
-          const savedUser = localStorage.getItem('finwise_current_user');
-          if (savedUser) {
-            setUser(JSON.parse(savedUser));
+        try {
+          if (fbUser) {
+            const profile = await api.getUserProfile();
+            setUser({
+              ...profile,
+              uid: fbUser.uid,
+              email: fbUser.email || profile.email,
+              name: fbUser.displayName || profile.name,
+              photoURL: fbUser.photoURL || profile.photoURL,
+            });
           } else {
-            setUser(null);
+            // Check if demo user was logged in
+            const savedUser = localStorage.getItem('finwise_current_user');
+            if (savedUser) {
+              setUser(JSON.parse(savedUser));
+            } else {
+              setUser(null);
+            }
           }
+        } catch (err) {
+          console.error("Auth state initialization error:", err);
+          setUser(null);
+        } finally {
+          setLoading(false);
         }
-        setLoading(false);
       });
       return () => unsubscribe();
     } else {
