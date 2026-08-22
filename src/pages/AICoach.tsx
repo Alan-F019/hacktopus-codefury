@@ -120,7 +120,7 @@ export const AICoach: React.FC = () => {
         </div>
 
         {/* Narrative Summary Hero Card */}
-        <div className="relative overflow-hidden rounded-xl bg-slate-900/60 border border-emerald-500/30 p-4 sm:p-5 shadow-xs">
+        <div className="relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-emerald-500/30 p-4 sm:p-5 shadow-xs">
           <div className="flex items-center gap-2 mb-3">
             <div className="w-6 h-6 rounded-lg bg-emerald-500 text-white flex items-center justify-center shadow-2xs">
               <Sparkles className="w-3.5 h-3.5" />

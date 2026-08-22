@@ -156,7 +156,7 @@ export const ExpenseAnalyzer: React.FC = () => {
         </div>
 
         {/* Dynamic Computed Insights Cards */}
-        <div className="p-4 rounded-xl bg-slate-900/40 border border-emerald-500/20 shadow-xs">
+        <div className="p-4 rounded-xl bg-slate-100 dark:bg-slate-900/40 border border-emerald-500/20 shadow-xs">
           <div className="flex items-center gap-2 mb-2">
             <Sparkles className="w-4 h-4 text-emerald-500" />
             <h3 className="text-sm font-bold text-slate-900 dark:text-white">
