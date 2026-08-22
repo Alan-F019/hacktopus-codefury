@@ -1,4 +1,3 @@
-import { Navigate } from 'react-router-dom';
 import React, { useEffect, useState } from 'react';
 import { api } from '../services/api';
 import { ExpenseData, ExpenseItem } from '../types';
@@ -53,19 +52,6 @@ export const ExpenseAnalyzer: React.FC = () => {
       setLoading(false);
     }
   };
-
-
-  if (authLoading) {
-    return (
-      <div className="min-h-[80vh] flex items-center justify-center">
-        <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  if (!user) {
-    return <Navigate to="/login" replace />;
-  }
 
   useEffect(() => {
     fetchExpenses();

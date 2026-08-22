@@ -18,27 +18,14 @@ import {
   Clock,
   Compass,
 } from 'lucide-react';
-import { Link, Navigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export const Dashboard: React.FC = () => {
-  const { user, loading: authLoading } = useAuth();
+  const { user } = useAuth();
   const [healthData, setHealthData] = useState<HealthScoreData | null>(null);
   const [portfolio, setPortfolio] = useState<PortfolioData | null>(null);
   const [goals, setGoals] = useState<Goal[]>([]);
   const [loading, setLoading] = useState(true);
-
-
-  if (authLoading) {
-    return (
-      <div className="min-h-[80vh] flex items-center justify-center">
-        <div className="w-10 h-10 border-4 border-emerald-500 border-t-transparent rounded-full animate-spin" />
-      </div>
-    );
-  }
-
-  if (!user) {
-    return <Navigate to="/login" replace />;
-  }
 
   useEffect(() => {
     const loadDashboardData = async () => {
