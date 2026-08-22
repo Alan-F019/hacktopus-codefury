@@ -39,7 +39,7 @@ export const Onboarding: React.FC = () => {
   });
 
   // Risk Quiz Answers (indexes matching question id - 1)
-  const [answers, setAnswers] = useState<number[]>([16, 12, 12, 12, 10, 10]);
+  const [answers, setAnswers] = useState<(number | null)[]>(Array(6).fill(null));
   const [quizIndex, setQuizIndex] = useState<number>(0);
 
   // Computed results after submission
@@ -59,10 +59,6 @@ export const Onboarding: React.FC = () => {
     const nextAnswers = [...answers];
     nextAnswers[quizIndex] = score;
     setAnswers(nextAnswers);
-
-    if (quizIndex < RISK_QUESTIONS.length - 1) {
-      setQuizIndex(quizIndex + 1);
-    }
   };
 
   const handleFinalSubmit = async () => {
@@ -76,7 +72,7 @@ export const Onboarding: React.FC = () => {
         existingSavings: Number(formData.existingSavings),
         investmentAmount: Number(formData.investmentAmount),
         financialGoal: formData.financialGoal,
-        answers,
+        answers: answers.map(a => a === null ? 0 : a),
       });
 
       setResult(response);
@@ -352,9 +348,9 @@ export const Onboarding: React.FC = () => {
                 <button
                   type="button"
                   onClick={handleFinalSubmit}
-                  disabled={submitting}
+                  disabled={submitting || answers[quizIndex] === null}
                   id="submit-onboarding-btn"
-                  className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/20 transition-all flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-xs sm:text-sm shadow-md shadow-emerald-600/20 transition-all flex items-center gap-2"
                 >
                   <Sparkles className="w-4 h-4" />
                   <span>{submitting ? 'Calculating Profile...' : 'Complete & Generate Profile'}</span>
@@ -363,7 +359,8 @@ export const Onboarding: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setQuizIndex(quizIndex + 1)}
-                  className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 text-white font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5"
+                  disabled={answers[quizIndex] === null}
+                  className="px-5 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-700 dark:hover:bg-slate-600 disabled:opacity-50 disabled:cursor-not-allowed text-white font-bold text-xs sm:text-sm transition-all flex items-center gap-1.5"
                 >
                   <span>Next Question</span>
                   <ArrowRight className="w-4 h-4" />
